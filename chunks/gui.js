@@ -147,7 +147,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 var onClickLogo = function onClickLogo() {
-  window.location = 'https://hq.iclass365.com:6281/home';
+  window.location = 'https://scratch.mit.edu/';
 };
 
 var handleTelemetryModalCancel = function handleTelemetryModalCancel() {
@@ -176,7 +176,7 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
   var WrappedGui = Object(redux__WEBPACK_IMPORTED_MODULE_2__["compose"])(_lib_app_state_hoc_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _lib_hash_parser_hoc_jsx__WEBPACK_IMPORTED_MODULE_5__["default"])(_containers_gui_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]); // TODO a hack for testing the backpack, allow backpack host to be set by url param
 
   var backpackHostMatches = window.location.href.match(/[?&]backpack_host=([^&]*)&?/);
-  var backpackHost = backpackHostMatches ? backpackHostMatches[1] : null;
+  var backpackHost = backpackHostMatches ? backpackHostMatches[1] : 'localStorage';
   var scratchDesktopMatches = window.location.href.match(/[?&]isScratchDesktop=([^&]+)/);
   var simulateScratchDesktop;
 
@@ -204,8 +204,9 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
     onTelemetryModalOptOut: handleTelemetryModalOptOut
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedGui, {
     canEditTitle: true,
-    backpackVisible: true,
-    showComingSoon: true,
+    backpackVisible: true //backpack选项
+    ,
+    showComingSoon: false,
     backpackHost: backpackHost,
     canSave: false,
     onClickLogo: onClickLogo
